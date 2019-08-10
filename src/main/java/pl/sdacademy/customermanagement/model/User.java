@@ -11,6 +11,7 @@ public class User {
     private String city;
     private String zipCode;
     private String company;
+    private String idNumber;
     private String phoneNumber;
     private String email;
     private Boolean state;
