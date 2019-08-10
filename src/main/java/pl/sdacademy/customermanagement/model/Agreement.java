@@ -10,15 +10,15 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "invoices")
+@Table(name = "agreements")
 @Getter
 @Setter
-public class Invoice {
+public class Agreement {
 
     @Id @GeneratedValue
     private long id;
-    private String invoiceNo;
-    private Date createDate;
-    private Date datePaid;
-    private UserAddress address;
+    private Date createAgrement;
+    private Date endAgreement;
+    private ListAgreement listAgreement;
+
 }
