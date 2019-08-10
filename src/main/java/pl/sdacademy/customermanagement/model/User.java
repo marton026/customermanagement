@@ -6,10 +6,7 @@ package pl.sdacademy.customermanagement.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -22,9 +19,8 @@ public class User {
     private long id;
     private String firstName;
     private String lastName;
-    private String street;
-    private String city;
-    private String zipCode;
+    @Embedded
+    private UserAddress address;
     private String company;
     private String idNumber;
     private String phoneNumber;
