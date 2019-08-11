@@ -3,6 +3,7 @@ package pl.sdacademy.customermanagement.dto;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -26,7 +27,7 @@ public class UserDto {
     private String phoneNumber;
     private String email;
     private Boolean state;
-    private Date createDate;
+    private LocalDateTime createDate;
 
 
 }

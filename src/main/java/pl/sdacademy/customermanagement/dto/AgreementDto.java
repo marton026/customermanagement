@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -20,8 +21,8 @@ public class AgreementDto {
 
 
     private Long id;
-    private Date createAgrement;
-    private Date endAgreement;
+    private LocalDateTime createAgrement;
+    private LocalDateTime endAgreement;
     private ListAgreement listAgreement;
 
 }
