@@ -7,12 +7,13 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Entity
-@Table(name = "invoices")
+
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "invoices")
 public class Invoice {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)

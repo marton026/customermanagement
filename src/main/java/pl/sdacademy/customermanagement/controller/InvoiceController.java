@@ -1,13 +1,12 @@
 package pl.sdacademy.customermanagement.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
-@RestController
+@Controller
 @RequestMapping("/invoice")
 @RequiredArgsConstructor
 public class InvoiceController {
@@ -19,7 +18,14 @@ public class InvoiceController {
     ModelAndView createInvoiceView() {
         ModelAndView modelAndView = new ModelAndView("createInvoice.html");
         modelAndView.addObject("invoice", new InvoiceDto());
-
         return modelAndView;
     }
+
+    @PostMapping("/create")
+    String createInvoice(@ModelAttribute InvoiceDto invoice) {
+        invoiceService.createOrUpdate(invoice);
+        return "redirect:/";
+    }
+
+
 }
