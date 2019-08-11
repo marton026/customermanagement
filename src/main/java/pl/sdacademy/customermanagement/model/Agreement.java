@@ -1,24 +1,24 @@
 package pl.sdacademy.customermanagement.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "agreements")
 @Getter
-@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Agreement {
 
-    @Id @GeneratedValue
-    private long id;
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     private Date createAgrement;
     private Date endAgreement;
-    private ListAgreement listAgreement;
+    @OneToMany
+    private Set<ListAgreement> listAgreement;
 
 }

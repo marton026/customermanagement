@@ -19,11 +19,12 @@ import java.util.Date;
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
     private String firstName;
     private String lastName;
-    @Embedded
-    private UserAddress address;
+    private String street;
+    private String city;
+    private String zipCode;
     private String company;
     private String idNumber;
     private String phoneNumber;
@@ -36,7 +37,9 @@ public class User {
                 .id(id)
                 .firstName(firstName)
                 .lastName(lastName)
-                .address(address)
+                .street(street)
+                .city(city)
+                .zipCode(zipCode)
                 .phoneNumber(phoneNumber)
                 .email(email)
                 .state(state)

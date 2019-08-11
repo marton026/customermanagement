@@ -1,30 +1,26 @@
 package pl.sdacademy.customermanagement.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import pl.sdacademy.customermanagement.model.UserAddress;
+import lombok.*;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "users")
+@EqualsAndHashCode
 
 public class UserDto {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+
+    private Long id;
     private String firstName;
     private String lastName;
-    @Embedded
-    private UserAddress address;
+    private String street;
+    private String city;
+    private String zipCode;
     private String company;
     private String idNumber;
     private String phoneNumber;

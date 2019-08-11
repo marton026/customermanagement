@@ -1,13 +1,13 @@
 package pl.sdacademy.customermanagement.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "listagremnts")
 public class ListAgreement {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     private String name;
-    private long agreementTime;
+    private Long agreementTime;
 }

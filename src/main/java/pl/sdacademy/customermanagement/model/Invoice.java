@@ -1,24 +1,31 @@
 package pl.sdacademy.customermanagement.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "invoices")
 @Getter
-@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Invoice {
 
-    @Id @GeneratedValue
-    private long id;
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
     private String invoiceNo;
     private Date createDate;
     private Date datePaid;
-    private UserAddress address;
+
+    public InvoiceDto toDto() {
+        return InvoiceDto.builder()
+                .id(id)
+                .invoiceNo(invoiceNo)
+                .createDate(createDate)
+                .datePaid(datePaid)
+                .build();
+    }
 }
