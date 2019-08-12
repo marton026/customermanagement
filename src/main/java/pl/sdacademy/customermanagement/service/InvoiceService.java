@@ -1,4 +1,4 @@
-package pl.sdacademy.customermanagement.controller;
+package pl.sdacademy.customermanagement.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
 
-    public void createOrUpdate(InvoiceDto dto) {
+    public void create(InvoiceDto dto) {
         Invoice invoice = Invoice.builder()
                 .id(dto.getId())
                 .invoiceNo(dto.getInvoiceNo())
@@ -22,4 +22,16 @@ public class InvoiceService {
         invoiceRepository.save(invoice);
     }
 
+    public InvoiceDto findById(Long id) {
+        return invoiceRepository.findById(id)
+                .map(Invoice::toDto)
+                .orElseThrow(() -> new IllegalStateException("nie ma takiej faktury"));
+    }
+
+
+
+    public void delete(Long invoiceId) {
+        invoiceRepository.deleteById(invoiceId);
+
+    }
 }

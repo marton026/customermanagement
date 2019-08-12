@@ -4,6 +4,7 @@ import lombok.*;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -13,14 +14,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "invoices")
+@Table(name = "invoice")
 public class Invoice {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String invoiceNo;
-    private LocalDateTime createDate;
-    private LocalDateTime datePaid;
+    private LocalDate createDate;
+    private LocalDate datePaid;
 
     public InvoiceDto toDto() {
         return InvoiceDto.builder()

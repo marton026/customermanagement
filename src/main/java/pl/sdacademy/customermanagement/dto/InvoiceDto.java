@@ -5,8 +5,8 @@ import lombok.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 
 @Getter
@@ -19,7 +19,7 @@ public class InvoiceDto {
 
     private Long id;
     private String invoiceNo;
-    private LocalDateTime createDate;
-    private LocalDateTime datePaid;
+    private LocalDate createDate;
+    private LocalDate datePaid;
 
 }

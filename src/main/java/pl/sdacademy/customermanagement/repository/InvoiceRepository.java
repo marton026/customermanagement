@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.sdacademy.customermanagement.model.Invoice;
 
 @Repository
-public interface InvoiceRepository extends JpaRepository<Invoice,Long> {
+public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 }
