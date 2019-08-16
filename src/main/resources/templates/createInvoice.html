@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Ewidencja faktur</title>
@@ -11,7 +11,7 @@
     <table>
         <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${invoice.id}"/></td></tr>
         <tr><td>Numer faktury:</td><td><input type="text" id="invoiceNo" name="invoiceNo" th:value="${invoice.invoiceNo}"/></td></tr>
-        <tr><td>Data utworzenia:</td><td><input type="date" id="createDate" name="createDate" th:value="${invoice.createDate}"/></td></tr>
+        <tr><td>Data utworzenia:</td><td><input type="date" id="invoiceDate" name="invoiceDate" th:value="${invoice.invoiceDate}"/></td></tr>
         <tr><td>Termin płatności:</td><td><input type="date" id="datePaid" name="datePaid" th:value="${invoice.datePaid}"/></td></tr>
 
         </td></tr>

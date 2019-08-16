@@ -15,6 +15,8 @@ public class MainViewController {
         ModelAndView mav = new  ModelAndView("index.html");
         mav.addObject("today", LocalDate.now());
         return mav;
+
+
     }
 
 

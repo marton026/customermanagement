@@ -6,5 +6,12 @@
 </head>
 <body>
 Zarządzanie fakturami <span th:text="${today}"/>
+
+<ul>
+    <li><a th:href="@{/invoice/create}">Dodaj fakturę</a></li>
+    <li><a th:href="@{/invoice/view}">Lista faktur</a></li>
+
+</ul>
+
 </body>
 </html>
