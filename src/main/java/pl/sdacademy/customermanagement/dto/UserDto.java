@@ -2,6 +2,7 @@ package pl.sdacademy.customermanagement.dto;
 
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -27,6 +28,7 @@ public class UserDto {
     private String phoneNumber;
     private String email;
     private Boolean state;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
 
 
