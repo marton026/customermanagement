@@ -7,7 +7,7 @@ import lombok.*;
 import pl.sdacademy.customermanagement.dto.UserDto;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 @Getter
@@ -31,7 +31,7 @@ public class User {
     private String phoneNumber;
     private String email;
     private Boolean state;
-    private LocalDateTime createDate;
+    private LocalDate createDate;
 
     public UserDto toDto() {
         return UserDto.builder()
