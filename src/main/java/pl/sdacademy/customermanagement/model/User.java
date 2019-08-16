@@ -4,6 +4,7 @@ package pl.sdacademy.customermanagement.model;
 
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.dto.UserDto;
 
 import javax.persistence.*;
@@ -31,6 +32,7 @@ public class User {
     private String phoneNumber;
     private String email;
     private Boolean state;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
 
     public UserDto toDto() {

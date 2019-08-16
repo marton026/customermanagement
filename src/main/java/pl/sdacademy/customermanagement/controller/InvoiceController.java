@@ -26,7 +26,7 @@ public class InvoiceController {
         return modelAndView;
     }
 
-    @GetMapping("view")
+    @GetMapping("/view")
     ModelAndView getAll() {
         List<InvoiceDto> listInvoices = invoiceService.findAll();
         return new ModelAndView("viewInvoice.html", "listInvoices", listInvoices);
