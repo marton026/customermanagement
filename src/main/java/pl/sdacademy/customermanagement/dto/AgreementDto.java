@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
 @Getter
-@Setter
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,8 +22,8 @@ public class AgreementDto {
 
 
     private Long id;
-    private Date createAgrement;
-    private Date endAgreement;
+    private LocalDate createAgrement;
+    private LocalDate endAgreement;
     private ListAgreement listAgreement;
 
 }

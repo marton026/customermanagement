@@ -1,24 +1,26 @@
 package pl.sdacademy.customermanagement.dto;
 
 import lombok.*;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 
 @Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 public class InvoiceDto {
-
-    @Id @GeneratedValue
     private Long id;
     private String invoiceNo;
-    private Date createDate;
-    private Date datePaid;
+    //@Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate invoiceDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate datePaid;
 
 }
