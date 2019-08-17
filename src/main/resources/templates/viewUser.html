@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista klientów</title>
+</head>
+<body>
+<h3>Lista klientów</h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Ulica i nr</th>
+            <th>Miasto</th>
+            <th>Kod pocztowy</th>
+            <th>Firma</th>
+            <th>Pesel/NIP</th>
+            <th>Nr. telefonu</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Data utworzenia</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listUsers}">
+            <td><span th:text="${user.id}"/></td>
+            <td><span th:text="${user.firstName}"/></td>
+            <td><span th:text="${user.lastName}"/></td>
+            <td><span th:text="${user.street}"/></td>
+            <td><span th:text="${user.city}"/></td>
+            <td><span th:text="${user.zipCode}"/></td>
+            <td><span th:text="${user.company}"/></td>
+            <td><span th:text="${user.idNumber}"/></td>
+            <td><span th:text="${user.phoneNumber}"/></td>
+            <td><span th:text="${user.email}"/></td>
+            <td><span th:checked="${user.state}? #{bool.true}: #{bool.false}"/></td>
+            <td><span th:text="${user.createDate}"/></td>
+            <td><a th:href="@{./edit?id=} + ${user.id}">Edytuj</a></td>
+            <td><a th:href="@{./delete?id=} + ${user.id}">Usuń</a></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

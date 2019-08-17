@@ -27,7 +27,7 @@ public class UserDto {
     private String idNumber;
     private String phoneNumber;
     private String email;
-    private Boolean state;
+    private Boolean state=false;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
 
