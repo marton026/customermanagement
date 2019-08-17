@@ -24,7 +24,6 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @UniqueElements
     private String invoiceNo;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate invoiceDate;
