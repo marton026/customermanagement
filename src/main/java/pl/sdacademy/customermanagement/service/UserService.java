@@ -26,6 +26,8 @@ public class UserService {
                 .street(dto.getStreet())
                 .city(dto.getCity())
                 .zipCode(dto.getZipCode())
+                .company(dto.getCompany())
+                .idNumber(dto.getIdNumber())
                 .phoneNumber(dto.getPhoneNumber())
                 .email(dto.getEmail())
                 .state(dto.getState())

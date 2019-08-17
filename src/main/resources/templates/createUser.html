@@ -11,17 +11,17 @@
 <form th:action="@{/user/create}" method="POST" th:object="${user}">
     <table>
         <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${user.id}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="firstname" name="firstname" th:value="${user.firstname}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="lastname" name="lastname" th:value="${user.lastname}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="street" name="street" th:value="${user.street}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="city" name="city" th:value="${user.city}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="zipCode" name="zipCode" th:value="${user.zipCode}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="company" name="company" th:value="${user.company}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="idNumber" name="idNumber" th:value="${user.idNumber}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="text" id="phoneNumber" name="phoneNumber" th:value="${user.phoneNumber}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="email" id="email" name="email" th:value="${user.email}"/></td></tr>
-        <tr><td>Numer faktury:</td><td><input type="checkbox" id="state" name="state" th:value="${user.state}"/></td></tr>
-        <tr><td>Data utworzenia:</td><td><input type="date" id="createDate" name="createDate" th:value="${invoice.createDate}"/></td></tr>
+        <tr><td>Imię:</td><td><input type="text" id="firstName" name="firstName" th:value="${user.firstName}"/></td></tr>
+        <tr><td>Nazwisko:</td><td><input type="text" id="lastName" name="lastName" th:value="${user.lastName}"/></td></tr>
+        <tr><td>Ulica i nr:</td><td><input type="text" id="street" name="street" th:value="${user.street}"/></td></tr>
+        <tr><td>Miasto:</td><td><input type="text" id="city" name="city" th:value="${user.city}"/></td></tr>
+        <tr><td>Kod pocztowy:</td><td><input type="text" id="zipCode" name="zipCode" th:value="${user.zipCode}"/></td></tr>
+        <tr><td>Firma:</td><td><input type="text" id="company" name="company" th:value="${user.company}"/></td></tr>
+        <tr><td>Pesel/NIP:</td><td><input type="text" id="idNumber" name="idNumber" th:value="${user.idNumber}"/></td></tr>
+        <tr><td>Nr. telefonu:</td><td><input type="text" id="phoneNumber" name="phoneNumber" th:value="${user.phoneNumber}"/></td></tr>
+        <tr><td>Email:</td><td><input type="email" id="email" name="email" th:value="${user.email}"/></td></tr>
+        <tr><td>Status:</td><td><input type="checkbox" id="state" name="state" th:checked="${user.state}? 'checked'"/></td></tr>
+        <tr><td>Data utworzenia:</td><td><input type="date" id="createDate" name="createDate" th:value="${user.createDate}"/></td></tr>
 
         </td></tr>
 

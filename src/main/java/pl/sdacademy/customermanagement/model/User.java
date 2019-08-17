@@ -43,7 +43,7 @@ public class User {
     private String phoneNumber;
     @Email
     private String email;
-    private Boolean state;
+    private Boolean state=false;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
 
@@ -55,6 +55,8 @@ public class User {
                 .street(street)
                 .city(city)
                 .zipCode(zipCode)
+                .company(company)
+                .idNumber(idNumber)
                 .phoneNumber(phoneNumber)
                 .email(email)
                 .state(state)
