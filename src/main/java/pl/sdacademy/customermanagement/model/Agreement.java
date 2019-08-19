@@ -21,4 +21,5 @@ public class Agreement {
     @OneToMany
     private Set<ListAgreement> listAgreement;
 
+
 }
