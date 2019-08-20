@@ -2,7 +2,6 @@ package pl.sdacademy.customermanagement.model;
 
 import lombok.*;
 
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
@@ -36,7 +35,7 @@ public class Invoice {
     private User luser;
 
     @OneToMany(mappedBy = "linvoice")
-    private List<invoiceItem> invoice_items;
+    private List<InvoiceItem> invoice_items;
 
     /*public static Invoice fromDto(InvoiceDto dto) {
         return Invoice.builder()

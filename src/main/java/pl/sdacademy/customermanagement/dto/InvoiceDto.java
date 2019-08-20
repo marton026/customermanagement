@@ -1,10 +1,9 @@
 package pl.sdacademy.customermanagement.dto;
 
 import lombok.*;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.sdacademy.customermanagement.model.invoiceItem;
+import pl.sdacademy.customermanagement.model.InvoiceItem;
 
 
 import java.time.LocalDate;
@@ -26,5 +25,5 @@ public class InvoiceDto {
     private LocalDate invoiceDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePaid;
-    private List<invoiceItem> items;
+    private List<InvoiceItem> items;
 }

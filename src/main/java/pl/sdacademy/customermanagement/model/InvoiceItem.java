@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pl.sdacademy.customermanagement.dto.InvoiceItemDto;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "invoice_items")
 
-public class invoiceItem {
+public class InvoiceItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,4 +27,13 @@ public class invoiceItem {
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private Invoice linvoice;
+
+    public InvoiceItemDto toDto() {
+        return InvoiceItemDto.builder()
+                .id(id)
+                .contents(contents)
+                .price(price)
+                .build();
+    }
+
 }

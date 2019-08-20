@@ -1,17 +1,14 @@
 package pl.sdacademy.customermanagement.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.stereotype.Service;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.model.Invoice;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
 
-import javax.persistence.Id;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

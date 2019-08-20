@@ -50,9 +50,6 @@ public class InvoiceController {
         return modelAndView;
     }
 
-//    @GetMapping
-//    InvoiceDto findLastInvoiceNo() {
-//        return invoiceService.findLastInvoiceNo();
-//    }
+
 
 }

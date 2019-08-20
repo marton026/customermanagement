@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class invoiceItemDto {
+public class InvoiceItemDto {
 
     private Long id;
     private String contents;
