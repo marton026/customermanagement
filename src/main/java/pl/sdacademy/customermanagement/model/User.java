@@ -13,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Getter
@@ -46,6 +47,11 @@ public class User {
     private Boolean state=false;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate contractExpDate;
+
+    @OneToMany(mappedBy = "luser")
+    private List<Invoice> invoices;
 
     public UserDto toDto() {
         return UserDto.builder()
@@ -61,6 +67,7 @@ public class User {
                 .email(email)
                 .state(state)
                 .createDate(createDate)
+                .contractExpDate(contractExpDate)
                 .build();
     }
 }
