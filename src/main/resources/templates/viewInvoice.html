@@ -22,7 +22,7 @@
             <td><span th:text="${invoice.invoiceNo}"/></td>
             <td><span th:text="${invoice.invoiceDate}"/></td>
             <td><span th:text="${invoice.datePaid}"/></td>
-            <td><a th:href="@{./edit?id=} + ${invoice.id}"><button type="button" name=" Edytuj"></button></a></td>
+            <td><a th:href="@{./edit?id=} + ${invoice.id}">Edytuj></a></td>
             <td><a th:href="@{./delete?id=} + ${invoice.id}">Usuń&nbsp;</a></td>
             <td><a th:href="@{../item/view?id=} + ${invoice.id}">Lista pozycji&nbsp;</a></td>
             <td><a th:href="@{../item/create?id=} + ${invoice.id}">Dodaj pozycję&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
