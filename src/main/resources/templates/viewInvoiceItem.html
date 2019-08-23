@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista faktur</title>
+</head>
+<body>
+<h3>Lista pozycji faktury nr :
+<!--    <span th:text="${invoice.invoiceNo}"/>-->
+</h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Opis pozycji</th>
+            <th>Cena</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="invoiceItem : ${listItems}">
+            <td><span th:text="${invoiceItem.id}"/></td>
+            <td><span th:text="${invoiceItem.contents}"/></td>
+            <td><span th:text="${invoiceItem.price}"/></td>
+            <td><a th:href="@{./edit?id=} + ${invoiceItem.id}">Edytuj</a></td>
+            <td><a th:href="@{./delete?id=} + ${invoiceItem.id}">Usuń</a></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

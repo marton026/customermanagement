@@ -20,7 +20,7 @@ public class InvoiceService {
 
     //zmienna pomocnicza
     //todo Trzeba wyciągnąć ostatni numer faktury z bazy danych
-    private String lastInvoiceNoFromDb = "FV0000/19";   // ostatni numer faktury wyciągnięty z bazy danych
+    private String lastInvoiceNoFromDb = "FV0001/19";   // ostatni numer faktury wyciągnięty z bazy danych
 
     //rok z ostatniej nazwy faktury w bazie danych
     private String yearFromlastInvoiceNoFromDb = lastInvoiceNoFromDb.substring(7,9); //  "FV0003/19" --> 19
