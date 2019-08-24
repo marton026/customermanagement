@@ -22,7 +22,7 @@ public class InvoiceService {
 
     //Funkcja ma generować kolejny numer faktury w zależności od aktualnego roku i poprzedniego numeru
     public String invoiceNoFromDbToNext(int invNo) {
-        return "FV"+String.format("%04d", invNo+1)+"/"+String.valueOf(LocalDate.now().getYear()).substring(2);
+        return "FV"+String.format("%04d", invNo)+"/"+String.valueOf(LocalDate.now().getYear()).substring(2);
     }
 
     public void createOrUpdate(InvoiceDto dto) {
