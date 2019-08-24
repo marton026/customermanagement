@@ -2,12 +2,14 @@ package pl.sdacademy.customermanagement.model;
 
 import lombok.*;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -25,8 +27,8 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String invoiceNo;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate invoiceDate;
+    @CreatedDate
+    private LocalDateTime invoiceDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePaid;
 

@@ -16,4 +16,9 @@ public class InvoiceItemDto {
     private Long id;
     private String contents;
     private BigDecimal price;
+    private Long invoiceId;
+
+    public InvoiceItemDto(Long invoiceId) {
+        this.invoiceId = invoiceId;
+    }
 }
