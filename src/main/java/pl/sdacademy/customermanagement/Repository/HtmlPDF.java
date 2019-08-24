@@ -35,11 +35,11 @@ public class HtmlPDF {
     /** The path to a folder containing extra fonts. */
     public static final String FONTS = "src/main/resources/";
     /** The Base URI of the HTML page. */
-    public static final String BASEURI = "src/main/resources/";
+    public static final String BASEURI = "src/main/resources/templates";
     /** The path to the source HTML file. */
     public static final String SRC = String.format("%sindex.html", BASEURI);
     /** The target folder for the result. */
-    public static final String TARGET = "src/main/resources/html";
+    public static final String TARGET = "src/main/resources/pdf";
     /** The path to the resulting PDF file. */
     public static final String DEST = String.format("%sindex.pdf", TARGET);
 

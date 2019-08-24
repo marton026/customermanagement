@@ -49,7 +49,7 @@ public class UserService {
     }
 
     public List<UserDto> findAll() {
-        List<User> list = userRepository.findAll();
+        List<User> list = (List<User>) userRepository.findAll();
         return list.stream()
                 .map(User::toDto)
                 .collect(Collectors.toList());
