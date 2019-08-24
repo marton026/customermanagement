@@ -1,4 +1,4 @@
-package pl.sdacademy.customermanagement.Repository;
+package pl.sdacademy.customermanagement.repository;
 
 //import java.io.File;
 //import java.io.FileInputStream;
