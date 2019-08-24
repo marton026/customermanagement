@@ -2,13 +2,13 @@ package pl.sdacademy.customermanagement.model;
 
 import lombok.*;
 
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Builder
@@ -18,7 +18,7 @@ import java.time.LocalDate;
 
 @Entity
 
-@Table(name = "invoice")
+@Table(name = "invoices")
 public class Invoice {
 
     @Id
@@ -29,6 +29,13 @@ public class Invoice {
     private LocalDate invoiceDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePaid;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User luser;
+
+    @OneToMany(mappedBy = "linvoice")
+    private List<InvoiceItem> invoice_items;
 
     /*public static Invoice fromDto(InvoiceDto dto) {
         return Invoice.builder()

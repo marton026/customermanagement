@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista pozycji</title>
+</head>
+<body>
+//todo sgserg
+
+<form th:action="@{/item/create}" method="POST" th:object="${item}">
+    <table>
+        <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${item.id}"/></td></tr>
+        <tr><td>Opis pozycji:</td><td><input type="text" id="contents" name="contents" th:value="${item.contents}"/></td></tr>
+        <tr><td>Cena:</td><td><input type="text" id="price" name="price" th:value="${item.price}"/></td></tr>
+
+        </td></tr>
+
+
+
+        <tr><td></td><td> <button type="submit">Dodaj</button></td></tr>
+    </table>
+</form>
+
+</body>
+</html>

@@ -6,8 +6,9 @@ import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.model.Invoice;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,14 +17,37 @@ public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
 
-//    public Long create(InvoiceDto dto) {
-//        return invoiceRepository.save(Invoice.fromDto(dto)).getId();
-//    }
+
+    //zmienna pomocnicza
+    //todo Trzeba wyciągnąć ostatni numer faktury z bazy danych
+    private String lastInvoiceNoFromDb = "FV0001/19";   // ostatni numer faktury wyciągnięty z bazy danych
+
+    //rok z ostatniej nazwy faktury w bazie danych
+    private String yearFromlastInvoiceNoFromDb = lastInvoiceNoFromDb.substring(7,9); //  "FV0003/19" --> 19
+
+    Date currentDate = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yy");
+    String yearString = dateFormat.format(currentDate);
+
+    //funkcja parsuje Stringa na int Np.: "FV0003/19" --> 3
+    //jeśli jest kolejny rok rozpoczyna numerację od 1 np: FV0001/20
+    public int getLastNoFromString() {
+        if (yearFromlastInvoiceNoFromDb.equals(yearString)) {
+            return Integer.parseInt(lastInvoiceNoFromDb.substring(2, 6));
+        } else {
+            return 0;
+        }
+    }
+    //Funkcja ma generować kolejny numer faktury w zależności od aktualnego roku i poprzedniego numeru
+    public String invoiceNoFromDbToNext(int invNo) {
+        return "FV"+String.format("%04d", invNo+1)+"/"+yearString;
+    }
+
 
     public void createOrUpdate(InvoiceDto dto) {
         Invoice invoice = Invoice.builder()
                 .id(dto.getId())
-                .invoiceNo(dto.getInvoiceNo())
+                .invoiceNo(invoiceNoFromDbToNext(getLastNoFromString()))  //wstawienie numeru faktury do bazy
                 .invoiceDate(dto.getInvoiceDate())
                 .datePaid(dto.getDatePaid())
                 .build();
@@ -48,6 +72,15 @@ public class InvoiceService {
                 .map(Invoice::toDto)
                 .collect(Collectors.toList());
     }
+
+
+
+    //todo
+//    public InvoiceDto findLastInvoiceNo() {
+//
+//        return null;
+//    }
+
 
 
 }

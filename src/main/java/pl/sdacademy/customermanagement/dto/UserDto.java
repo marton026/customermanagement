@@ -3,8 +3,10 @@ package pl.sdacademy.customermanagement.dto;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.sdacademy.customermanagement.model.Invoice;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Getter
@@ -30,6 +32,9 @@ public class UserDto {
     private Boolean state=false;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate contractExpDate;
+    private List<Invoice> invoices;
 
 
 }
