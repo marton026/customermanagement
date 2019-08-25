@@ -20,7 +20,7 @@ public class CustomermanagementApplication {
 
         SpringApplication.run(CustomermanagementApplication.class, args);
 
-        Date currentDate = new Date();
+       /* Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yy");
         String dateString = dateFormat.format(currentDate);
 
@@ -31,11 +31,11 @@ public class CustomermanagementApplication {
         }
 
         System.out.println();
-      /* // System.out.println(getLastFromDb());
+      *//* // System.out.println(getLastFromDb());
         String s= "FV0005/19".substring(2, 6);
-        int i= Integer.parseInt(s);*/
+        int i= Integer.parseInt(s);*//*
         System.out.println(Integer.parseInt("FV0005/19".substring(2, 6)));
-
+*/
         // System.out.println(i);
 
 

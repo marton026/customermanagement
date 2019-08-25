@@ -1,7 +1,15 @@
 package pl.sdacademy.customermanagement.dto;
 
-import java.math.BigDecimal;
+import lombok.*;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class InvoiceViewPdfDto {
 
     private String firstName;
@@ -12,8 +20,8 @@ public class InvoiceViewPdfDto {
     private String company;
     private String idNumber;
 
-    private String contents;
-    private BigDecimal price;
+    private List<InvoiceItemViewPdfDto> items;
+
     private Long invoiceId;
 
 
