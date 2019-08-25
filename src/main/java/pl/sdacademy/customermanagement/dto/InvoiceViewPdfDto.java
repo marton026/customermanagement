@@ -22,6 +22,7 @@ public class InvoiceViewPdfDto {
 
     private List<InvoiceItemViewPdfDto> items;
 
+    private String invoiceNo;
     private Long invoiceId;
 
 

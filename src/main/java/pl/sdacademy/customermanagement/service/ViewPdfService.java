@@ -33,6 +33,7 @@ public class ViewPdfService {
                 .zipCode(invoice.getLuser().getZipCode())
                 .company(invoice.getLuser().getCompany())
                 .invoiceId(invoice.getId())
+                .invoiceNo(invoice.getInvoiceNo())
                 .items(invoice.getInvoice_items().stream()
                         .map(item -> invoiceItemToPdfDto(item))
                         .collect(Collectors.toList()))

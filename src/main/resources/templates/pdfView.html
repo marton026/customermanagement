@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Pdf view</title>
 </head>
 <body>
-<h1 style="text-align: center;"><strong>FAKTURA [[${invoiceNo}]]</strong></h1>
+<h1 style="text-align: center;"><strong>FAKTURA <span th:text="${listPdf.invoiceNo}"/></strong></h1>
 <table border="2" cellspacing="2" cellpadding="2">
     <tbody>
     <tr>
