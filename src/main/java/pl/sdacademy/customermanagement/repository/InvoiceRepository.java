@@ -6,19 +6,20 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.sdacademy.customermanagement.model.Invoice;
 
+import java.util.Date;
+import java.util.Optional;
+
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
 
+//    @Query("select inv.invoiceNo from Invoice  where inv.invoiceDate = " +
+//            "(select max(inv.invoiceDate) from Invoice inv)")
+//    String findlastInvoiceDate();
 
-
-   // Invoice findLastInvoiceNo(String lastNo);
-
-    // List<Invoice> findTopByInvoiceNo(String lastNo);
-
-   // Invoice findTopByOrderByInvoiceNoDesc();
-
-    //Optional<String> findTopByInvoiceNoOrderByIdDesc();
+    @Query("from Invoice  where invoiceDate = " +
+            "(select max(invoiceDate) from Invoice)")
+    Optional<Invoice> findlastInvoiceDate();
 
 
 }

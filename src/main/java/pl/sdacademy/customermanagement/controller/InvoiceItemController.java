@@ -21,9 +21,9 @@ public class InvoiceItemController {
 
 
     @GetMapping("/create")
-    ModelAndView createItemView() {
+    ModelAndView createItemView(@RequestParam("id") Long invoiceId) {
         ModelAndView modelAndView = new ModelAndView("createInvoiceItem.html");
-        modelAndView.addObject("item", new InvoiceItemDto());
+        modelAndView.addObject("item", new InvoiceItemDto(invoiceId));
         return modelAndView;
     }
 
@@ -34,8 +34,8 @@ public class InvoiceItemController {
     }
 
     @GetMapping("/view")
-    ModelAndView getAll() {
-        List<InvoiceItemDto> listItems = invoiceItemService.findAll();
+    ModelAndView getAll(@RequestParam("id") Long invoiceId) {
+        List<InvoiceItemDto> listItems = invoiceItemService.find(invoiceId);
         return new ModelAndView("viewInvoiceItem.html", "listItems", listItems);
     }
 
