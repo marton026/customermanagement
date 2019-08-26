@@ -22,6 +22,7 @@ public class InvoiceItem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String contents;
+    private int numberOfItems;
     private BigDecimal price;
 
     @ManyToOne
@@ -32,6 +33,7 @@ public class InvoiceItem {
         return InvoiceItemDto.builder()
                 .id(id)
                 .contents(contents)
+                .numberOfItems(numberOfItems)
                 .price(price)
                 .build();
     }

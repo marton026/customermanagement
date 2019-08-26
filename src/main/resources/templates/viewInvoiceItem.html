@@ -14,6 +14,7 @@
         <tr>
             <th>Id</th>
             <th>Opis pozycji</th>
+            <th>Ilość</th>
             <th>Cena</th>
         </tr>
         </thead>
@@ -21,6 +22,7 @@
         <tr th:each="invoiceItem : ${listItems}">
             <td><span th:text="${invoiceItem.id}"/></td>
             <td><span th:text="${invoiceItem.contents}"/></td>
+            <td><span th:text="${invoiceItem.numberOfItems}"/></td>
             <td><span th:text="${invoiceItem.price}"/></td>
             <td><a th:href="@{./edit?id=} + ${invoiceItem.id}">Edytuj</a></td>
             <td><a th:href="@{./delete?id=} + ${invoiceItem.id}">Usuń</a></td>

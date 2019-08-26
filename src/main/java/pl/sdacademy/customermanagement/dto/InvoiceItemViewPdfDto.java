@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class InvoiceItemViewPdfDto {
 
+    private Long id;
     private String contents;
+    private int numberOfItems;
     private BigDecimal price;
 }

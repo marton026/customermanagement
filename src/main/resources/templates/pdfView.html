@@ -12,12 +12,12 @@
         <td>sadfasdf</td>
         <td>ORYGINAŁ - kopia&nbsp;</td>
         <td>Data wystawienia:&nbsp;</td>
-        <td>data&nbsp;</td>
+        <td><span th:text="${listPdf.invoiceDate}"/></td>
     </tr>
     <tr>
         <td>Data wystawienia&nbsp;</td>
         <td>&nbsp;/wykonania usługi</td>
-        <td>&nbsp;data</td>
+        <td><span th:text="${listPdf.invoiceDate}"/></td>
     </tr>
     <tr>
         <td>&nbsp;Sprzedawca:</td>
@@ -28,7 +28,13 @@
             <p>MaxBiuro<br /> ul targowa<br /> Łęczna<br /> tel. 23423423<br /> info@maxbiuro.pl<br /> tel. 242342342<br /> NIP: 121313123<br /> Bank: Iteligo<br /> Konto:2342 23423 234 234 2 234</p>
         </td>
         <td>
-            <p>&nbsp;Nazwa&nbsp;firmy<br /> adres<br /> 24-233 miejscowość<br /> <br /><br />NIP</p>
+            <p>
+                <span th:text="${listPdf.company}"/><br/>
+                <span th:text="${listPdf.street}"/><br/>
+                <span th:text="${listPdf.zipCode} "/>
+                <span th:text="${listPdf.city}"/><br/>
+                <br/><br/>
+                NIP: <span th:text="${listPdf.idNumber}"/></p>
         </td>
     </tr>
     <tr>
@@ -37,12 +43,12 @@
     </tr>
     <tr>
         <td>&nbsp;Termin&nbsp;zapłaty:</td>
-        <td>&nbsp;19/07/2019</td>
+        <td><span th:text="${listPdf.datePaid}"/></td>
     </tr>
     </tbody>
 </table>
-<table style="height: 40px;" width="596">
-    <tbody>
+<table border="3" cellspacing="1" cellpadding="1"  width=100%>
+    <thead>
     <tr>
         <td style="width: 92px;">lp</td>
         <td style="width: 92px;">nazwa towaru/usługi</td>
@@ -51,7 +57,19 @@
         <td style="width: 93px;">wartość</td>
         <td style="width: 94px;">vat</td>
     </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${listPdf.items}">
+        <td><span th:text="${item.id}"/></td>
+        <td><span th:text="${item.contents}"/></td>
+        <td><span th:text="${item.numberOfItems}"/></td>
+        <td><span th:text="${item.price}"/></td>
+        <td><span th:text="${item.numberOfItems}*${item.price}"/></td>
+        <td>23%</td>
+    </tr>
     </tbody>
 </table>
+
+Do zapłaty :
 </body>
 </html>

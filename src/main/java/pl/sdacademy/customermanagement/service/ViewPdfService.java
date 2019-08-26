@@ -32,8 +32,11 @@ public class ViewPdfService {
                 .city(invoice.getLuser().getCity())
                 .zipCode(invoice.getLuser().getZipCode())
                 .company(invoice.getLuser().getCompany())
-                .invoiceId(invoice.getId())
+                .idNumber(invoice.getLuser().getIdNumber())
                 .invoiceNo(invoice.getInvoiceNo())
+                .invoiceDate(invoice.getInvoiceDate())
+                .datePaid(invoice.getDatePaid())
+                .invoiceId(invoice.getId())
                 .items(invoice.getInvoice_items().stream()
                         .map(item -> invoiceItemToPdfDto(item))
                         .collect(Collectors.toList()))
@@ -42,7 +45,9 @@ public class ViewPdfService {
 
     private InvoiceItemViewPdfDto invoiceItemToPdfDto(InvoiceItem item) {
         return InvoiceItemViewPdfDto.builder()
+                .id(item.getId())
                 .contents(item.getContents())
+                .numberOfItems(item.getNumberOfItems())
                 .price(item.getPrice())
                 .build();
     }
