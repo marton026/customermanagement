@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
+import pl.sdacademy.customermanagement.dto.InvoiceViewPdfDto;
 
 
 import javax.persistence.*;
@@ -56,4 +57,5 @@ public class Invoice {
                 .datePaid(datePaid)
                 .build();
     }
+
 }

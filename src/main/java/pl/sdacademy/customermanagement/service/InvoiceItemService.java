@@ -26,6 +26,7 @@ public class InvoiceItemService {
         InvoiceItem invoiceItem= InvoiceItem.builder()
                 .id(dto.getId())
                 .contents(dto.getContents())
+                .numberOfItems(dto.getNumberOfItems())
                 .price(dto.getPrice())
                 .linvoice(invoice)
                 .build();
