@@ -59,8 +59,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="item : ${listPdf.items}">
-        <td><span th:text="${item.id}"/></td>
+    <tr th:each="item,iterator : ${listPdf.items}">
+        <td><span th:text="${iterator.index+1}"/></td>
         <td><span th:text="${item.contents}"/></td>
         <td><span th:text="${item.numberOfItems}"/></td>
         <td><span th:text="${item.price}"/></td>

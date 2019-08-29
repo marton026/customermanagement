@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.service.InvoiceService;
+import pl.sdacademy.customermanagement.service.UserService;
 
 import java.util.List;
 
@@ -16,12 +17,13 @@ public class InvoiceController {
 
 
     private final InvoiceService invoiceService;
+    private final UserService userService;
 
 
     @GetMapping("/create")
-    ModelAndView createInvoiceView() {
+    ModelAndView createInvoiceView(@RequestParam("id") Long userId) {
         ModelAndView modelAndView = new ModelAndView("createInvoice.html");
-        modelAndView.addObject("invoice", new InvoiceDto());
+        modelAndView.addObject("invoice", new InvoiceDto(userId));
         return modelAndView;
     }
 
@@ -32,9 +34,11 @@ public class InvoiceController {
     }
 
     @GetMapping("/view")
-    ModelAndView getAll() {
-        List<InvoiceDto> listInvoices = invoiceService.findAll();
-        return new ModelAndView("viewInvoice.html", "listInvoices", listInvoices);
+    ModelAndView getAll(@RequestParam("id") Long userId) {
+        ModelAndView mav = new ModelAndView("viewInvoice.html");
+        mav.addObject("listInvoices", invoiceService.find(userId));
+        mav.addObject("userCompany", userService.findById(userId).getCompany());
+        return mav;
     }
 
     @GetMapping("/delete")

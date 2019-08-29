@@ -5,22 +5,20 @@
     <title>Lista faktur</title>
 </head>
 <body>
-<h3>Lista pozycji faktury nr :
-<!--    <span th:text="${invoice.invoiceNo}"/>-->
-</h3>
+<h3>Lista pozycji faktury nr : <span th:text="${itemInvoiceNo}"/></h3>
 
     <table>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>LP</th>
             <th>Opis pozycji</th>
             <th>Ilość</th>
             <th>Cena</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="invoiceItem : ${listItems}">
-            <td><span th:text="${invoiceItem.id}"/></td>
+        <tr th:each="invoiceItem,iterator : ${listItems}">
+            <td><span th:text="${iterator.index+1}"/></td>
             <td><span th:text="${invoiceItem.contents}"/></td>
             <td><span th:text="${invoiceItem.numberOfItems}"/></td>
             <td><span th:text="${invoiceItem.price}"/></td>

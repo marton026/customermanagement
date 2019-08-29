@@ -10,7 +10,7 @@
     <table>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>LP</th>
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Ulica i nr</th>
@@ -22,12 +22,13 @@
             <th>Email</th>
             <th>Status</th>
             <th>Data utworzenia</th>
+            <th>Data końca umowy</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${listUsers}">
-            <td><span th:text="${user.id}"/></td>
+        <tr th:each="user,iterator : ${listUsers}">
+            <td><span th:text="${iterator.index+1}"/></td>
             <td><span th:text="${user.firstName}"/></td>
             <td><span th:text="${user.lastName}"/></td>
             <td><span th:text="${user.street}"/></td>
@@ -39,8 +40,11 @@
             <td><span th:text="${user.email}"/></td>
             <td><span th:checked="${user.state}? #{bool.true}: #{bool.false}"/></td>
             <td><span th:text="${user.createDate}"/></td>
+            <td><span th:text="${user.contractExpDate}"/></td>
             <td><a th:href="@{./edit?id=} + ${user.id}">Edytuj</a></td>
             <td><a th:href="@{./delete?id=} + ${user.id}">Usuń</a></td>
+            <td><a th:href="@{../invoice/view?id=} + ${user.id}">Lista faktur</a></td>
+            <td><a th:href="@{../invoice/create?id=} + ${user.id}">Dodaj fakturę</a></td>
         </tr>
         </tbody>
     </table>

@@ -32,6 +32,7 @@ public class UserService {
                 .email(dto.getEmail())
                 .state(dto.getState())
                 .createDate(dto.getCreateDate())
+                .contractExpDate(dto.getContractExpDate())
                 .build();
         userRepository.save(user);
     }
