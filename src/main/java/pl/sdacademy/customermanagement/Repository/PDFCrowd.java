@@ -80,7 +80,7 @@ import java.io.IOException;
 public class PDFCrowd {
     public static void main(String[] args) throws IOException {
         //Metoda którą będziemy wywoływać do wygenerowania pliku pdf
-        convertHtmlToPdf("srcmain/resources/templates", "src/main/resources/pdf");
+        convertHtmlToPdf("https://www.iso.org.pl/uslugi-zarzadzania/wdrazanie-systemow/zarzadzanie-ryzykiem/iso-iec-27001/", "src/main/resources/pdf/example.pdf");
     }
 
     //Metoda która generuje plik pdf na podstawie ścieżki wejścia i wyjścia
@@ -88,7 +88,7 @@ public class PDFCrowd {
 
         try {
 // create the API client instance
-            Pdfcrowd.HtmlToPdfClient client = new Pdfcrowd.HtmlToPdfClient("Marcin", "ce544b6ea52a5621fb9d55f8b542d14d");
+            Pdfcrowd.HtmlToPdfClient client = new Pdfcrowd.HtmlToPdfClient("demo", "ce544b6ea52a5621fb9d55f8b542d14d");
             // uruchamia konwersje i zapisuje do pliku wyjsciowego
             client.convertUrlToFile(inputFilePath, outputFilePath);
         } catch (Pdfcrowd.Error why) {
