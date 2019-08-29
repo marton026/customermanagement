@@ -5,20 +5,20 @@
     <title>Lista faktur</title>
 </head>
 <body>
-<h3>Lista faktur</h3>
+<h3>Lista faktur klienta: <span th:text="${userCompany}"/></h3>
 
     <table>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>LP</th>
             <th>Numer faktury</th>
             <th>Data utworzenia</th>
             <th>Termin płatności</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="invoice : ${listInvoices}">
-            <td><span th:text="${invoice.id}"/></td>
+        <tr th:each="invoice,iterator : ${listInvoices}">
+            <td><span th:text="${iterator.index+1}"/></td>
             <td><span th:text="${invoice.invoiceNo}"/></td>
             <td><span th:text="${invoice.invoiceDate}"/></td>
             <td><span th:text="${invoice.datePaid}"/></td>

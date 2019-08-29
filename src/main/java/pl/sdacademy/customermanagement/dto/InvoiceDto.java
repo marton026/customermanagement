@@ -27,4 +27,10 @@ public class InvoiceDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datePaid;
     private List<InvoiceItem> items;
+    private Long userId;
+
+
+    public InvoiceDto(Long userId) {
+        this.userId = userId;
+    }
 }

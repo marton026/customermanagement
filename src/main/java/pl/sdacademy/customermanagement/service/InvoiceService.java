@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.model.Invoice;
+import pl.sdacademy.customermanagement.model.User;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
+import pl.sdacademy.customermanagement.repository.UserRepository;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class InvoiceService {
 
     private final InvoiceRepository invoiceRepository;
+    private final UserRepository userRepository;
 
     //Funkcja ma generować kolejny numer faktury w zależności od aktualnego roku i poprzedniego numeru
     public String invoiceNoFromDbToNext(int invNo) {
@@ -26,11 +29,16 @@ public class InvoiceService {
     }
 
     public void createOrUpdate(InvoiceDto dto) {
+
+        User user = userRepository.findById(dto.getUserId())
+                .orElseThrow(() -> new IllegalStateException("Użytkownik nie istnieje"));
+
         Invoice invoice = Invoice.builder()
                 .id(dto.getId())
                 .invoiceNo(invoiceNoFromDbToNext(findNextInvoiceNumber()))  //wstawienie numeru faktury do bazy
                 .invoiceDate(LocalDateTime.now())
                 .datePaid(dto.getDatePaid())
+                .luser(user)
                 .build();
         invoiceRepository.save(invoice);
     }
@@ -47,8 +55,9 @@ public class InvoiceService {
 
     }
 
-    public List<InvoiceDto> findAll() {
-        List<Invoice> list = invoiceRepository.findAll();
+    public List<InvoiceDto> find(Long userId) {
+        List<Invoice> list = userId == null ? invoiceRepository.findAll() :
+                invoiceRepository.findByLuser_Id(userId);
         return list.stream()
                 .map(Invoice::toDto)
                 .collect(Collectors.toList());
