@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-Zarządzanie fakturami <span th:text="${today}"/>
+<h2>Aplikacja do zarządzania fakturami w firmie</h2>
 
 <ul>
-    <li><a th:href="@{/invoice/create}">Dodaj fakturę</a></li>
-    <li><a th:href="@{/invoice/view}">Lista faktur</a></li><br>
     <li><a th:href="@{/user/create}">Dodaj klienta</a></li>
     <li><a th:href="@{/user/view}">Lista klientów</a></li>
 
 </ul>
-
+Dzisiaj: <span th:text="${today}"/>
 </body>
 </html>

@@ -38,6 +38,7 @@ public class InvoiceController {
         ModelAndView mav = new ModelAndView("viewInvoice.html");
         mav.addObject("listInvoices", invoiceService.find(userId));
         mav.addObject("userCompany", userService.findById(userId).getCompany());
+        mav.addObject("userIdNo", userService.findById(userId).getId());
         return mav;
     }
 

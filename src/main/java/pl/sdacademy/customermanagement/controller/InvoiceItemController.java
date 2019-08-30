@@ -8,6 +8,7 @@ import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.dto.InvoiceItemDto;
 import pl.sdacademy.customermanagement.service.InvoiceItemService;
 import pl.sdacademy.customermanagement.service.InvoiceService;
+import pl.sdacademy.customermanagement.service.UserService;
 
 import java.util.List;
 

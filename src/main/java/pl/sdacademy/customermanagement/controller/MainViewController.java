@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Controller
 public class MainViewController {
 
-    @RequestMapping("/invoice")
+    @RequestMapping("/")
     ModelAndView mainView() {
         ModelAndView mav = new  ModelAndView("index.html");
         mav.addObject("today", LocalDate.now());
