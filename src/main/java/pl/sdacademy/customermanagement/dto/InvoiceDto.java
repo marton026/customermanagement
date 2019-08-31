@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import pl.sdacademy.customermanagement.model.InvoiceItem;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,6 +29,9 @@ public class InvoiceDto {
     private LocalDate datePaid;
     private List<InvoiceItem> items;
     private Long userId;
+    private BigDecimal total;
+
+
 
 
     public InvoiceDto(Long userId) {
