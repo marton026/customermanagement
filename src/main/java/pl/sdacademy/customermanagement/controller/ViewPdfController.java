@@ -1,6 +1,5 @@
 package pl.sdacademy.customermanagement.controller;
 
-import com.itextpdf.text.DocumentException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +34,6 @@ public class ViewPdfController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "index.html";
+        return " ";
     }
 }

@@ -28,7 +28,7 @@ public class InvoiceService {
         return "FV"+String.format("%04d", invNo)+"/"+String.valueOf(LocalDate.now().getYear()).substring(2);
     }
 
-    public void createOrUpdate(InvoiceDto dto) {
+    public Long createOrUpdate(InvoiceDto dto) {
 
         User user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> new IllegalStateException("Użytkownik nie istnieje"));
@@ -40,7 +40,7 @@ public class InvoiceService {
                 .datePaid(dto.getDatePaid())
                 .luser(user)
                 .build();
-        invoiceRepository.save(invoice);
+        return invoiceRepository.save(invoice).getId();
     }
 
     public InvoiceDto findById(Long id) {
