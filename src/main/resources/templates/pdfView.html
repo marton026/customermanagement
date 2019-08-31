@@ -3,6 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>Pdf view</title>
+    <style>
+        @font-face {
+            font-family: 'source-sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url(../files/SourceSansPro-Regular.ttf);
+            -fs-font-subset: complete-font;
+        }
+        body {
+            font-family: 'source-sans';
+        }
+    </style>
 </head>
 <body>
 <h1 style="text-align: center;"><strong>FAKTURA <span th:text="${listPdf.invoiceNo}"/></strong></h1>
