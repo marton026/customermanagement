@@ -40,14 +40,6 @@ public class Invoice {
     @OneToMany(mappedBy = "linvoice")
     private List<InvoiceItem> invoice_items;
 
-    /*public static Invoice fromDto(InvoiceDto dto) {
-        return Invoice.builder()
-                .id(dto.getId())
-                .invoiceNo(dto.getInvoiceNo())
-                .invoiceDate(dto.getInvoiceDate())
-                .datePaid(dto.getDatePaid())
-                .build();
-    }*/
 
     public InvoiceDto toDto() {
         return InvoiceDto.builder()
