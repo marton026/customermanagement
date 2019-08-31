@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sdacademy.customermanagement.dto.InvoiceDto;
 import pl.sdacademy.customermanagement.service.InvoiceService;
+import pl.sdacademy.customermanagement.service.PdfService;
 import pl.sdacademy.customermanagement.service.UserService;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class InvoiceController {
 
     private final InvoiceService invoiceService;
     private final UserService userService;
+    private final PdfService pdfService;
 
 
     @GetMapping("/create")
@@ -29,7 +31,8 @@ public class InvoiceController {
 
     @PostMapping("/create")
     String createInvoice(@ModelAttribute InvoiceDto invoice) {
-        invoiceService.createOrUpdate(invoice);
+        Long id = invoiceService.createOrUpdate(invoice);
+        pdfService.createPdf(id);
         return "redirect:/";
     }
 

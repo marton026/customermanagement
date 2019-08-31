@@ -23,24 +23,23 @@ public class InvoiceService {
     private final InvoiceRepository invoiceRepository;
     private final UserRepository userRepository;
 
-    //Funkcja ma generować kolejny numer faktury w zależności od aktualnego roku i poprzedniego numeru
     public String invoiceNoFromDbToNext(int invNo) {
         return "FV"+String.format("%04d", invNo)+"/"+String.valueOf(LocalDate.now().getYear()).substring(2);
     }
 
-    public void createOrUpdate(InvoiceDto dto) {
+    public Long createOrUpdate(InvoiceDto dto) {
 
         User user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> new IllegalStateException("Użytkownik nie istnieje"));
 
         Invoice invoice = Invoice.builder()
                 .id(dto.getId())
-                .invoiceNo(invoiceNoFromDbToNext(findNextInvoiceNumber()))  //wstawienie numeru faktury do bazy
+                .invoiceNo(invoiceNoFromDbToNext(findNextInvoiceNumber()))
                 .invoiceDate(LocalDateTime.now())
                 .datePaid(dto.getDatePaid())
                 .luser(user)
                 .build();
-        invoiceRepository.save(invoice);
+        return invoiceRepository.save(invoice).getId();
     }
 
     public InvoiceDto findById(Long id) {
