@@ -1,4 +1,4 @@
-package pl.sdacademy.customermanagement.repository;
+package pl.sdacademy.customermanagement.Repository;
 
 import org.omg.CORBA.LongLongSeqHelper;
 import org.springframework.data.repository.CrudRepository;
