@@ -51,4 +51,8 @@ public class ViewPdfService {
                 .price(item.getPrice())
                 .build();
     }
+
+//    public InvoiceViewPdfDto total(Long id) {
+//        return invoiceRepository.findById(id)
+//    }
 }
