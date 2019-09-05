@@ -31,9 +31,9 @@ public class ViewPdfController {
     }
 
     @GetMapping("/gen")
-    String testInvoiceGeneration(@RequestParam Long id) {
+    String testInvoiceGeneration(@RequestParam Long id,@RequestParam String invoiceNumber) {
         try {
-            pdfService.createPdf(id);
+            pdfService.createPdf(id,invoiceNumber);
         } catch (Exception e) {
             e.printStackTrace();
         }
