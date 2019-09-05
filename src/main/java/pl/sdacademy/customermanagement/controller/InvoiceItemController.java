@@ -68,12 +68,12 @@ public class InvoiceItemController {
     }*/
 
 
-    @PostMapping("/save")
+   /* @PostMapping("/save")
     String saveInvoice(@ModelAttribute InvoiceDto invoice) {
         Long id = invoiceService.createOrUpdate(invoice);
         pdfService.createPdf(id);
         return "redirect:/";
-    }
+    }*/
     }
 
 

@@ -31,6 +31,6 @@
 <br><br>
 <a th:href="@{/}">Strona Główna</a>
 <a href="javascript:history.back();">Wstecz</a>
-<a th:href="@{../pdf/gen?id=} + ${itemInvoiceID}">Wygeneruj PDF</a>
+<a th:href="@{../pdf/gen?id=} + ${itemInvoiceID}+'&invoiceNumber='+${itemInvoiceNo.substring(0,6)}+'_'+${itemInvoiceNo.substring(7,9)}">Wygeneruj PDF</a>
 </body>
 </html>

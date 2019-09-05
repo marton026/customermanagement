@@ -26,7 +26,7 @@ public class PdfService {
     @Autowired
     private ViewPdfService viewPdfService;
 
-    public void createPdf(long invoiceId) {
+    public void createPdf(long invoiceId,String invoiceNo) {
         try {
             Map<String, Object> params = new HashMap<>();
             params.put("listPdf", viewPdfService.findById(invoiceId));
@@ -34,17 +34,19 @@ public class PdfService {
 
             String template = "pdfView.html";
             String filledHtml = engine.process(template, context);
-
-            final W3CDom w3cDom = new W3CDom();
-            final Document w3cDoc = w3cDom.fromJsoup(Jsoup.parse(filledHtml));
-            final OutputStream outStream = new FileOutputStream("invoice.pdf");
-            final PdfRendererBuilder pdfBuilder = new PdfRendererBuilder();
-            pdfBuilder.useFastMode();
             String baseUrl = getClass()
                     .getProtectionDomain()
                     .getCodeSource()
                     .getLocation()
                     .toString();
+            String path ="C:\\Users\\Marcin\\IdeaProjects\\customermanagement\\src\\main\\resources\\static\\pdf\\"+invoiceNo.substring(7,9)+"\\";
+
+            final W3CDom w3cDom = new W3CDom();
+            final Document w3cDoc = w3cDom.fromJsoup(Jsoup.parse(filledHtml));
+            final OutputStream outStream = new FileOutputStream(path+invoiceNo+".pdf");
+            final PdfRendererBuilder pdfBuilder = new PdfRendererBuilder();
+            pdfBuilder.useFastMode();
+
             pdfBuilder.withW3cDocument(w3cDoc, baseUrl);
             pdfBuilder.useFont(new File(PdfService.class.getClassLoader().getResource("files/SourceSansPro-Regular.ttf").getFile()), "source-sans");
             pdfBuilder.toStream(outStream);

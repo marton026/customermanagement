@@ -69,7 +69,7 @@ public class InvoiceService {
         }
 
         String invoiceNumber =  lastInvoiceNumber.get();
-        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9); //  "FV0003/19" --> 19
+        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9); //  "FV0003/image" --> image
 
         String currentYear = String.valueOf(LocalDate.now().getYear()).substring(2);
 

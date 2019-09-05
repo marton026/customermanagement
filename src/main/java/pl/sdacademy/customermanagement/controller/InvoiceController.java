@@ -31,8 +31,9 @@ public class InvoiceController {
 
     @PostMapping("/create")
     String createInvoice(@ModelAttribute InvoiceDto invoice) {
-        Long id = invoiceService.createOrUpdate(invoice);
-        pdfService.createPdf(id);
+       // Long id =
+                invoiceService.createOrUpdate(invoice);
+        //pdfService.createPdf(id);
         return "redirect:/";
     }
 
