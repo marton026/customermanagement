@@ -26,10 +26,10 @@ public class PdfService {
     @Autowired
     private ViewPdfService viewPdfService;
 
-    public void createPdf(long ivoiceId) {
+    public void createPdf(long invoiceId) {
         try {
             Map<String, Object> params = new HashMap<>();
-            params.put("listPdf", viewPdfService.findById(ivoiceId));
+            params.put("listPdf", viewPdfService.findById(invoiceId));
             Context context = new Context(Locale.forLanguageTag("pl"), params);
 
             String template = "pdfView.html";
@@ -40,22 +40,20 @@ public class PdfService {
             final OutputStream outStream = new FileOutputStream("invoice.pdf");
             final PdfRendererBuilder pdfBuilder = new PdfRendererBuilder();
             pdfBuilder.useFastMode();
-            pdfBuilder.withW3cDocument(w3cDoc, "pdf/");
+            String baseUrl = getClass()
+                    .getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toString();
+            pdfBuilder.withW3cDocument(w3cDoc, baseUrl);
             pdfBuilder.useFont(new File(PdfService.class.getClassLoader().getResource("files/SourceSansPro-Regular.ttf").getFile()), "source-sans");
             pdfBuilder.toStream(outStream);
             pdfBuilder.run();
             outStream.close();
         } catch (Exception e) {
-            System.out.println("PDF could not be created: " + e.getMessage());
+            System.out.println("Nie można utworzyć pliku PDF " + e.getMessage());
         }
 
-        /*OutputStream outputStream = new FileOutputStream("message.pdf");
-        ITextRenderer renderer = new ITextRenderer();
-        renderer.setDocumentFromString(String.valueOf(htmlInBytes));
-        renderer.layout();
-        renderer.createPDF(outputStream, false);
-        renderer.finishPDF();
-        outputStream.close();*/
     }
 }
 
