@@ -15,4 +15,5 @@ public class InvoiceItemViewPdfDto {
     private String contents;
     private int numberOfItems;
     private BigDecimal price;
+
 }
