@@ -15,7 +15,7 @@ public class InvoiceItemDto {
 
     private Long id;
     private String contents;
-    private int numberOfItems = 1;
+    private Integer numberOfItems = 1;
     private BigDecimal price;
     private Long invoiceId;
 

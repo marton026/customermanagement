@@ -27,7 +27,7 @@ public class InvoiceViewPdfDto {
     private Long invoiceId;
 
     private List<InvoiceItemViewPdfDto> items;
-
+    private BigDecimal total;
 
 
 }

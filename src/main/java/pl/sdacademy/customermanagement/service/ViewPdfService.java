@@ -1,6 +1,8 @@
 package pl.sdacademy.customermanagement.service;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.el.lang.ELArithmetic;
+import org.hibernate.cfg.ObjectNameSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.sdacademy.customermanagement.dto.InvoiceItemViewPdfDto;
@@ -9,7 +11,13 @@ import pl.sdacademy.customermanagement.model.Invoice;
 import pl.sdacademy.customermanagement.model.InvoiceItem;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Objects;
 import java.util.stream.Collectors;
+
+import static org.apache.el.lang.ELArithmetic.BIGDECIMAL;
+import static org.apache.el.lang.ELArithmetic.multiply;
 
 @Service
 @RequiredArgsConstructor
@@ -40,6 +48,9 @@ public class ViewPdfService {
                 .items(invoice.getInvoice_items().stream()
                         .map(item -> invoiceItemToPdfDto(item))
                         .collect(Collectors.toList()))
+                .total(invoice.getInvoice_items().stream()
+                .map(item1 -> BigDecimal.valueOf(item1.getNumberOfItems()).multiply(item1.getPrice()))
+                .reduce(BigDecimal.ZERO,BigDecimal::add))
                 .build();
     }
 
@@ -51,8 +62,4 @@ public class ViewPdfService {
                 .price(item.getPrice())
                 .build();
     }
-
-//    public InvoiceViewPdfDto total(Long id) {
-//        return invoiceRepository.findById(id)
-//    }
 }

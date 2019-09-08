@@ -29,7 +29,6 @@ public class InvoiceDto {
     private LocalDate datePaid;
     private List<InvoiceItem> items;
     private Long userId;
-    private BigDecimal total;
 
 
 

@@ -22,7 +22,7 @@ public class InvoiceItem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String contents;
-    private int numberOfItems;
+    private Integer numberOfItems;
     private BigDecimal price;
 
     @ManyToOne
