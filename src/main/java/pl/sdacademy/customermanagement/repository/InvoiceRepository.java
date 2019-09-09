@@ -20,5 +20,9 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
             "(select max(invoiceDate) from Invoice)")
     Optional<Invoice> findlastInvoiceDate();
 
-
+    //todo zapytanie
+//
+//    SELECT i.id
+//    FROM invoices i WHERE i.invoice_date =
+//            ( SELECT MAX(invoice_date) FROM invoices WHERE user_id = i.user_id );
 }
