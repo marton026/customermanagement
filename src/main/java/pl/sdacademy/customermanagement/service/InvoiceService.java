@@ -23,6 +23,7 @@ public class InvoiceService {
     private final InvoiceRepository invoiceRepository;
     private final UserRepository userRepository;
 
+
     public String invoiceNoFromDbToNext(int invNo) {
         return "FV"+String.format("%04d", invNo)+"/"+String.valueOf(LocalDate.now().getYear()).substring(2);
     }
@@ -40,6 +41,25 @@ public class InvoiceService {
                 .luser(user)
                 .build();
         return invoiceRepository.save(invoice).getId();
+    }
+
+    public void generatingInvoices() {
+
+        List<User> userList = invoiceRepository.findDistinctByLuser(InvoiceDto.builder().build().getUserId());
+        Invoice invoice;
+
+        for (User user : userList ) {
+
+            invoice = Invoice.builder()
+                    .id(InvoiceDto.builder().build().getId())
+                    .invoiceNo(invoiceNoFromDbToNext(findNextInvoiceNumber()))
+                    .invoiceDate(LocalDateTime.now())
+                    .datePaid(LocalDate.now().plusWeeks(1))
+                    .luser(user)
+                    .build();
+            System.out.println("test");
+            invoiceRepository.save(invoice);
+        }
     }
 
     public InvoiceDto findById(Long id) {

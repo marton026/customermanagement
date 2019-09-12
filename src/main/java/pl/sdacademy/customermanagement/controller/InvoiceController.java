@@ -19,7 +19,7 @@ public class InvoiceController {
 
     private final InvoiceService invoiceService;
     private final UserService userService;
-    private final PdfService pdfService;
+   // private final PdfService pdfService;
 
 
     @GetMapping("/create")
@@ -31,9 +31,7 @@ public class InvoiceController {
 
     @PostMapping("/create")
     String createInvoice(@ModelAttribute InvoiceDto invoice) {
-       // Long id =
                 invoiceService.createOrUpdate(invoice);
-        //pdfService.createPdf(id);
         return "redirect:/";
     }
 
