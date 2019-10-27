@@ -8,11 +8,9 @@ import pl.sdacademy.customermanagement.model.User;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
 import pl.sdacademy.customermanagement.repository.UserRepository;
 
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -102,7 +100,7 @@ public class InvoiceService {
         }
 
         String invoiceNumber =  lastInvoiceNumber.get();
-        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9); //  "FV0003/image" --> image
+        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9);
 
         String currentYear = String.valueOf(LocalDate.now().getYear()).substring(2);
 
