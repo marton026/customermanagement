@@ -8,10 +8,9 @@ import pl.sdacademy.customermanagement.model.User;
 import pl.sdacademy.customermanagement.repository.InvoiceRepository;
 import pl.sdacademy.customermanagement.repository.UserRepository;
 
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,12 +44,24 @@ public class InvoiceService {
 
     public void generatingInvoices() {
 
-        List<User> userList = invoiceRepository.findDistinctByLuser(InvoiceDto.builder().build().getUserId());
-        Invoice invoice;
+        //List<User> userList = invoiceRepository.findDistinctByLuser(InvoiceDto.builder().build().getUserId());
+        //List<User> userList = userRepository.findAll();
+        List<User> list = (List<User>) userRepository.findAll();
+        //Invoice invoice;
+/*
+        for (Iterator<User> itr = list.iterator(); itr.hasNext(); ) {
+            User user = itr.next();
+            System.out.println("użytkownik"+user.getId());
+        }*/
 
-        for (User user : userList ) {
 
-            invoice = Invoice.builder()
+
+
+        for (User user : list ) {
+
+            System.out.println("użytkownik"+user.getId());
+
+           Invoice invoice = Invoice.builder()
                     .id(InvoiceDto.builder().build().getId())
                     .invoiceNo(invoiceNoFromDbToNext(findNextInvoiceNumber()))
                     .invoiceDate(LocalDateTime.now())
@@ -89,7 +100,7 @@ public class InvoiceService {
         }
 
         String invoiceNumber =  lastInvoiceNumber.get();
-        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9); //  "FV0003/image" --> image
+        String yearFromlastInvoiceNoFromDb = invoiceNumber.substring(7,9);
 
         String currentYear = String.valueOf(LocalDate.now().getYear()).substring(2);
 

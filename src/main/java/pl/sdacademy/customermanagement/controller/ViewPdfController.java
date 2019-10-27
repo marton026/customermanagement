@@ -10,7 +10,6 @@ import pl.sdacademy.customermanagement.service.InvoiceItemService;
 import pl.sdacademy.customermanagement.service.PdfService;
 import pl.sdacademy.customermanagement.service.ViewPdfService;
 
-import java.io.IOException;
 
 @Controller
 @RequestMapping("/pdf")
