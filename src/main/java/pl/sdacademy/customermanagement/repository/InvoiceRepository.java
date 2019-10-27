@@ -22,14 +22,14 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
     Optional<Invoice> findlastInvoiceDate();
 
 
-    List<User> findDistinctByLuser(Long userId); //czy to jest
+   // List<User> findDistinctByLuser(Long userId); //czy to jest
     // równoważne z zapytaniem:  "Select distinct user_id from invoices";?
 
 
 
 
     //todo zapytanie
-//
+//      lista ostatnio dodanych faktur dla poszczególnych klientów
 //    SELECT i.id FROM invoices i
 //    WHERE i.invoice_date =
 //      ( SELECT MAX(invoice_date) FROM invoices WHERE user_id = i.user_id );
